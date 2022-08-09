@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fido-service
+spec:
+  # type 有四種 ClusterIP, NodePort, LoadBalancer, ExternalName
+  # 預設是 ClusterIP
+  type: ClusterIP
+  # 選擇帶有 "app=nginx" 的 pod
+  selector:
+    app: flask
+  ports:
+  - protocol: TCP
+    port: 5000
+    # 此為 Pod 對外開放的 port number
+    targetPort: 5000

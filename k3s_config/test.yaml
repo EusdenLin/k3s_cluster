@@ -1,0 +1,12 @@
+apiVersion: v1                         ## k8s 版本號
+kind: Pod                              ## 服務類型
+metadata:
+  name: fido-auth                      ## Pod 的名稱
+  labels:
+    app: flask
+spec:
+  containers:
+  - name: fido-auth-container              ## container 的名稱
+    image: eusdenlin/fido-auth:1.0.1                       ## 映像檔位置
+    ports:                             ## 暴露 port 給其他資源存取
+      - containerPort: 5000
